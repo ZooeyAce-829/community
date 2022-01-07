@@ -1,2 +1,8 @@
 server:
   port: 8001
+
+github:
+  client:
+    id: e8ddec605b8d0da8a386
+    secret: 6fd707166bf4cf632c2dd5c862aecca505fb8d82
+    uri: http://localhost:8001/callback
