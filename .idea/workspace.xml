@@ -13,18 +13,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="143de62d-aa5d-442d-abcf-aa9c43a490f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/AuthorizeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/AuthorizeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/dto/GithubUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/dto/GithubUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/provider/GithubProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/provider/GithubProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="143de62d-aa5d-442d-abcf-aa9c43a490f9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,7 +110,7 @@
       <workItem from="1641464663662" duration="9546000" />
       <workItem from="1641537996259" duration="20311000" />
       <workItem from="1641619474982" duration="289000" />
-      <workItem from="1641622686149" duration="2249000" />
+      <workItem from="1641622686149" duration="2598000" />
     </task>
     <servers />
   </component>
