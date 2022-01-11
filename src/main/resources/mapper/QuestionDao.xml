@@ -2,8 +2,38 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="">
-    <select id="" resultType="">
-    
+<mapper namespace="com.zyy.community.dao.QuestionDao">
+
+    <insert id="createQuestion" parameterType="com.zyy.community.entity.Question">
+        insert into t_question(title,description,gmt_create,gmt_modify,creator,tag) values(#{title},#{description},#{gmt_create},#{gmt_modify},#{creator},#{tag})
+    </insert>
+
+    <select id="listQuestions" resultType="com.zyy.community.entity.Question">
+        select * from t_question limit #{offset},#{size}
     </select>
+
+    <select id="count" resultType="java.lang.Integer">
+        select count(*) from t_question
+    </select>
+
+    <select id="countByUserId" resultType="java.lang.Integer">
+        select count(*) from t_question where creator=#{userId}
+    </select>
+
+    <select id="listQuestionsByUserId" resultType="com.zyy.community.entity.Question">
+        select * from t_question where creator=#{userId} limit #{offset},#{size}
+    </select>
+
+    <select id="getById" resultType="com.zyy.community.entity.Question">
+        select * from t_question where id=#{id}
+    </select>
+
+    <update id="updateQuestion" parameterType="com.zyy.community.entity.Question">
+        update t_question set title=#{title},description=#{description},gmt_modify=#{gmt_modify},tag=#{tag} where id=#{id}
+    </update>
+
+    <update id="updateViewCount" parameterType="java.lang.Integer">
+        update t_question set view_count=view_count+1 where id=#{id}
+    </update>
+
 </mapper>

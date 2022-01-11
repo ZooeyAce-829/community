@@ -3,7 +3,25 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zyy.community.dao.UserDao">
-    <insert id="insertUser" parameterType="com.zyy.community.entity.User" useGeneratedKeys="true" keyProperty="id">
-        insert into t_user(account_id,name,token,gmt_create,gmt_modify) values(#{account_id},#{name},#{token},#{gmt_create},#{gmt_modify})
+
+    <insert id="insertUser" parameterType="com.zyy.community.entity.User">
+        insert into t_user(account_id,name,token,gmt_create,gmt_modify,avatar_url) values(#{account_id},#{name},#{token},#{gmt_create},#{gmt_modify},#{avatar_url})
     </insert>
+
+    <select id="findByToken" resultType="com.zyy.community.entity.User">
+        select * from t_user where token=#{token}
+    </select>
+
+    <select id="findById" resultType="com.zyy.community.entity.User">
+        select * from t_user where id=#{id}
+    </select>
+
+    <select id="selectUserById" resultType="com.zyy.community.entity.User">
+        select * from t_user where account_id=#{account_id}
+    </select>
+
+    <update id="update" parameterType="com.zyy.community.entity.User">
+        update t_user set name=#{name},token=#{token},gmt_modify=#{gmt_modify},avatar_url=#{avatar_url} where id=#{id}
+    </update>
+
 </mapper>

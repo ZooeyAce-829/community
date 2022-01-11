@@ -17,3 +17,10 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.zyy.community.entity
+
+#  驼峰命名时候 无法解析属性加入此配置
+#  mybatis:
+#    configuration:
+#      map-underscore-to-camel-case: true
+

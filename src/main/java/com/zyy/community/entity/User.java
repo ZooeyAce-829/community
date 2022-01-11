@@ -9,9 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User {
     private Integer id;
-    private String name;
     private String account_id;
+    private String name;
     private String token;
     private Long gmt_create;
     private Long gmt_modify;
+    private String bio;
+    private String avatar_url;
 }
