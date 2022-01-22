@@ -24,9 +24,9 @@ public class CustomizeErrorController implements ErrorController {
         if (status.is4xxClientError()) {
             model.addAttribute("message", "请求的页面不存在");
         }
-        if (status.is5xxServerError()) {
-            model.addAttribute("message", "服务器压力有点大哦.....");
-        }
+//        if (status.is5xxServerError()) {
+//            model.addAttribute("message", "服务器压力有点大哦.....");
+//        }
 
         return new ModelAndView("error");
     }

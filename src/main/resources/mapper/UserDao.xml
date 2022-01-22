@@ -24,4 +24,13 @@
         update t_user set name=#{name},token=#{token},gmt_modify=#{gmt_modify},avatar_url=#{avatar_url} where id=#{id}
     </update>
 
+    <select id="selectUserByCommentator" resultType="com.zyy.community.entity.User" parameterType="java.util.List">
+        select * from t_user
+        where
+            id in
+            <foreach item="i" collection="commentatorList"  open="(" close=")" separator=",">
+                #{i}
+            </foreach>
+    </select>
+
 </mapper>

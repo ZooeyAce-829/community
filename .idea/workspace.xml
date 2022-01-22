@@ -9,61 +9,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="143de62d-aa5d-442d-abcf-aa9c43a490f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/advice/CustomizeExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/CustomizeErrorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/ProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/PublishController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/QuestionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/dao/QuestionDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/dto/PaginationDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/dto/QuestionDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/entity/Question.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/exception/CustomizeErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/exception/CustomizeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/exception/ICustomizeErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/intereptor/SessionInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/intereptor/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/service/QuestionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/service/impl/QuestionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/QuestionDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/community.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/editormd-logo.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/editormd-logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/editormd-logo.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/editormd-logo.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/error.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/navigation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/publish.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/question.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/VO/CommonResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/dao/CommentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/dto/CommentCreateDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/dto/CommentDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/entity/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/enums/CommentTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/service/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/service/impl/CommentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/CommentDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/community.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/AuthorizeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/AuthorizeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/advice/CustomizeExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/advice/CustomizeExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/CustomizeErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/CustomizeErrorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/controller/QuestionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/dao/QuestionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/dao/QuestionDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/dto/GithubUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/dto/GithubUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/exception/CustomizeErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/exception/CustomizeErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/exception/CustomizeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/exception/CustomizeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/exception/ICustomizeErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/exception/ICustomizeErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/service/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/service/impl/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/service/impl/QuestionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zyy/community/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zyy/community/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/QuestionDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/QuestionDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/icomoon.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/icomoon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/icomoon.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fonts/icomoon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/community.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/community.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/question.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/question.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,9 +46,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="mybatis-mapper" />
         <option value="HTML File" />
         <option value="Enum" />
+        <option value="mybatis-mapper" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -114,6 +87,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="js.last.introduce.type" value="VAR" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -137,25 +111,13 @@
       <recent name="E:\community" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.zyy.community.dto" />
       <recent name="com.zyy.community.service.impl" />
       <recent name="com.zyy.community.intereptor" />
       <recent name="com.zyy.community.entity" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="community" />
       <option name="PACKAGE_NAME" value="" />
@@ -199,7 +161,14 @@
       <workItem from="1641702639764" duration="16281000" />
       <workItem from="1641729338914" duration="4514000" />
       <workItem from="1641788146756" duration="22955000" />
-      <workItem from="1641872345710" duration="19581000" />
+      <workItem from="1641872345710" duration="22890000" />
+      <workItem from="1641967055000" duration="13060000" />
+      <workItem from="1641983661136" duration="7212000" />
+      <workItem from="1642050371442" duration="8051000" />
+      <workItem from="1642058519349" duration="8318000" />
+      <workItem from="1642146392852" duration="1223000" />
+      <workItem from="1642748402638" duration="7867000" />
+      <workItem from="1642839558615" duration="6760000" />
     </task>
     <servers />
   </component>
@@ -262,74 +231,78 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="230" y="58" width="1089" height="681" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1641881199620" />
-    <state x="511" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1641894634044">
+    <state x="511" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1642066897907">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="511" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1641894634044" />
+    <state x="511" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1642066897907" />
     <state x="499" y="188" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1641631307146">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="188" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1641631307146" />
+    <state x="429" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1642066675555">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="429" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1642066675555" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1641882363091">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1641882363091" />
-    <state width="425" height="466" key="DebuggerActiveHint" timestamp="1641705004488">
+    <state width="439" height="466" key="DebuggerActiveHint" timestamp="1642840591820">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="425" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1641705004488" />
+    <state width="439" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1642840591820" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1641465119959">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1641465119959" />
-    <state width="1493" height="282" key="GridCell.Tab.0.bottom" timestamp="1641895567734">
+    <state width="1232" height="395" key="GridCell.Tab.0.bottom" timestamp="1642854295061">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="282" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1641895567734" />
-    <state width="1493" height="282" key="GridCell.Tab.0.center" timestamp="1641895567733">
+    <state width="1232" height="395" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1642854295061" />
+    <state width="1232" height="395" key="GridCell.Tab.0.center" timestamp="1642854295061">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="282" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1641895567733" />
-    <state width="1493" height="282" key="GridCell.Tab.0.left" timestamp="1641895567733">
+    <state width="1232" height="395" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1642854295061" />
+    <state width="1232" height="395" key="GridCell.Tab.0.left" timestamp="1642854295061">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="282" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1641895567733" />
-    <state width="1493" height="282" key="GridCell.Tab.0.right" timestamp="1641895567734">
+    <state width="1232" height="395" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1642854295061" />
+    <state width="1232" height="395" key="GridCell.Tab.0.right" timestamp="1642854295061">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="282" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1641895567734" />
-    <state width="1493" height="282" key="GridCell.Tab.1.bottom" timestamp="1641895567734">
+    <state width="1232" height="395" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1642854295061" />
+    <state width="1493" height="276" key="GridCell.Tab.1.bottom" timestamp="1642854091812">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="282" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1641895567734" />
-    <state width="1493" height="282" key="GridCell.Tab.1.center" timestamp="1641895567734">
+    <state width="1493" height="276" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1642854091812" />
+    <state width="1493" height="276" key="GridCell.Tab.1.center" timestamp="1642854091812">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="282" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1641895567734" />
-    <state width="1493" height="282" key="GridCell.Tab.1.left" timestamp="1641895567734">
+    <state width="1493" height="276" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1642854091812" />
+    <state width="1493" height="276" key="GridCell.Tab.1.left" timestamp="1642854091811">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="282" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1641895567734" />
-    <state width="1493" height="282" key="GridCell.Tab.1.right" timestamp="1641895567734">
+    <state width="1493" height="276" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1642854091811" />
+    <state width="1493" height="276" key="GridCell.Tab.1.right" timestamp="1642854091812">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="282" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1641895567734" />
-    <state width="1493" height="322" key="GridCell.Tab.2.bottom" timestamp="1641885523391">
+    <state width="1493" height="276" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1642854091812" />
+    <state width="1493" height="218" key="GridCell.Tab.2.bottom" timestamp="1642841305365">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="322" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1641885523391" />
-    <state width="1493" height="322" key="GridCell.Tab.2.center" timestamp="1641885523390">
+    <state width="1493" height="218" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1642841305365" />
+    <state width="1493" height="218" key="GridCell.Tab.2.center" timestamp="1642841305365">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="322" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1641885523390" />
-    <state width="1493" height="322" key="GridCell.Tab.2.left" timestamp="1641885523390">
+    <state width="1493" height="218" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1642841305365" />
+    <state width="1493" height="218" key="GridCell.Tab.2.left" timestamp="1642841305365">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="322" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1641885523390" />
-    <state width="1493" height="322" key="GridCell.Tab.2.right" timestamp="1641885523390">
+    <state width="1493" height="218" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1642841305365" />
+    <state width="1493" height="218" key="GridCell.Tab.2.right" timestamp="1642841305365">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="322" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1641885523390" />
+    <state width="1493" height="218" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1642841305365" />
     <state width="242" height="477" key="HiddenNamespacesPopup" timestamp="1641557913006">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -338,26 +311,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1641640991866" />
-    <state x="490" y="154" width="561" height="524" key="StructurePopup" timestamp="1641889986829">
+    <state x="490" y="154" width="561" height="524" key="StructurePopup" timestamp="1642852952509">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="490" y="154" width="561" height="524" key="StructurePopup/0.0.1536.824@0.0.1536.824" timestamp="1641889986829" />
-    <state width="574" height="498" key="SwitcherDM" timestamp="1641884436519">
+    <state x="490" y="154" width="561" height="524" key="StructurePopup/0.0.1536.824@0.0.1536.824" timestamp="1642852952509" />
+    <state width="574" height="498" key="SwitcherDM" timestamp="1642854056505">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="574" height="498" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1641884436519" />
-    <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1641705048286">
+    <state width="574" height="498" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1642854056505" />
+    <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1642841255717">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="775" height="419" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1641705048286" />
+    <state width="775" height="419" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1642841255717" />
     <state x="651" y="294" width="334" height="250" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1641557932943">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="651" y="294" width="334" height="250" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824@0.0.1536.824" timestamp="1641557932943" />
-    <state x="527" y="152" width="670" height="517" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1641642550215">
+    <state x="527" y="152" width="670" height="517" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1641988253068">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="527" y="152" width="670" height="517" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1641642550215" />
+    <state x="527" y="152" width="670" height="517" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1641988253068" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1641800813122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -378,9 +351,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1641801910426" />
-    <state x="452" y="81" width="672" height="678" key="search.everywhere.popup" timestamp="1641894777885">
+    <state x="452" y="81" width="672" height="678" key="search.everywhere.popup" timestamp="1642854051349">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="452" y="81" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1641894777885" />
+    <state x="452" y="81" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1642854051349" />
   </component>
 </project>

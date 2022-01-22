@@ -31,8 +31,7 @@ public class UserServiceImpl implements UserService {
             u.setAvatar_url(u.getAvatar_url());
             u.setName(user.getName());
             u.setToken(user.getToken());
-            int count = userDao.update(u);
-            if (count == 1) log.info("修改成功");
+            userDao.update(u);
         }
 
         return user;

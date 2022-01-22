@@ -6,10 +6,8 @@ package com.zyy.community.exception;
 
 public class CustomizeException extends RuntimeException {
 
-    /**
-     *  传回的错误信息
-     */
     private final String message;
+    private Integer code;
 
     /**
      *  message赋值为枚举类型的errorCode，
@@ -18,10 +16,15 @@ public class CustomizeException extends RuntimeException {
      */
     public CustomizeException(ICustomizeErrorCode errorCode) {
         this.message = errorCode.getMessage();
+        this.code = errorCode.getCode();
     }
 
     @Override
     public String getMessage() {
         return message;
+    }
+
+    public Integer getCode() {
+        return code;
     }
 }

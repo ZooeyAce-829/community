@@ -142,6 +142,9 @@ public class QuestionServiceImpl implements QuestionService {
             // create
             question.setGmt_create(System.currentTimeMillis());
             question.setGmt_modify(question.getGmt_create());
+            question.setComment_count(0);
+            question.setLike_count(0);
+            question.setView_count(0);
             questionDao.createQuestion(question);
         } else {
             // update
@@ -154,7 +157,8 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public int incViewCount(Integer id) {
-        return questionDao.updateViewCount(id);
+    public int incViewCount(QuestionDTO question) {
+        return questionDao.updateViewCount(question);
     }
+
 }

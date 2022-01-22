@@ -1,5 +1,6 @@
 package com.zyy.community.dao;
 
+import com.zyy.community.dto.QuestionDTO;
 import com.zyy.community.entity.Question;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -23,5 +24,7 @@ public interface QuestionDao {
 
     Integer updateQuestion(Question question);
 
-    Integer updateViewCount(@Param(value = "id") Integer id);
+    Integer updateViewCount(QuestionDTO question);
+
+    int updateCommentCount(Question question);
 }

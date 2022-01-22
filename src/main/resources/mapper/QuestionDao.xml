@@ -32,8 +32,11 @@
         update t_question set title=#{title},description=#{description},gmt_modify=#{gmt_modify},tag=#{tag} where id=#{id}
     </update>
 
-    <update id="updateViewCount" parameterType="java.lang.Integer">
+    <update id="updateViewCount" parameterType="com.zyy.community.dto.QuestionDTO">
         update t_question set view_count=view_count+1 where id=#{id}
     </update>
 
+    <update id="updateCommentCount" parameterType="com.zyy.community.entity.Question">
+        update t_question set comment_count=comment_count+1 where id=#{id}
+    </update>
 </mapper>

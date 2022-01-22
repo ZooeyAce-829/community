@@ -4,6 +4,8 @@ import com.zyy.community.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
 public interface UserDao {
 
@@ -16,4 +18,6 @@ public interface UserDao {
     User selectUserById(@Param("account_id") String account_id);
 
     int update(User user);
+
+    List<User> selectUserByCommentator(@Param("commentatorList") List<Integer> commentatorList);
 }
