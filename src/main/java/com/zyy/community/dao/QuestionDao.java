@@ -27,4 +27,6 @@ public interface QuestionDao {
     Integer updateViewCount(QuestionDTO question);
 
     int updateCommentCount(Question question);
+
+    List<Question> selectRelated(Question question);
 }

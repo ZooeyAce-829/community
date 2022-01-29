@@ -11,7 +11,7 @@ import lombok.Data;
 public class QuestionDTO {
     private Integer id;
     private String title;
-    private String description;
+    private String description;  // 用数组会便于获取的时候截取
     private String tag;
     private Long gmt_create;
     private Long gmt_modify;

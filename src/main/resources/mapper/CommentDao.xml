@@ -9,10 +9,10 @@
     </insert>
 
     <select id="findByParentId" resultType="com.zyy.community.entity.Comment">
-        select * from t_comment where parent_id=#{parent_id}
+        select * from t_comment where id=#{parent_id}
     </select>
 
-    <select id="selectCommentByQuestionId" resultType="com.zyy.community.dto.CommentDTO">
-        select * from t_comment where parent_id=#{id} and type=1 order by gmt_create desc
+    <select id="selectCommentById" resultType="com.zyy.community.dto.CommentDTO">
+        select * from t_comment where parent_id=#{id} and type=#{type} order by gmt_create desc
     </select>
 </mapper>

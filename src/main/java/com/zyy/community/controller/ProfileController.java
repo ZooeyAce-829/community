@@ -1,7 +1,10 @@
 package com.zyy.community.controller;
 
+import com.zyy.community.dto.NotificationDTO;
 import com.zyy.community.dto.PaginationDTO;
+import com.zyy.community.dto.QuestionDTO;
 import com.zyy.community.entity.User;
+import com.zyy.community.service.NotificationService;
 import com.zyy.community.service.QuestionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +21,9 @@ public class ProfileController {
     @Resource
     private QuestionService questionService;
 
+    @Resource
+    private NotificationService notificationService;
+
     @GetMapping(value = "/profile/{action}")
     public String profile(HttpServletRequest request,
                           @PathVariable(name = "action") String action,
@@ -33,14 +39,15 @@ public class ProfileController {
         if ("questions".equals(action)) {
             model.addAttribute("section", "question");
             model.addAttribute("sectionName", "我的提问");
+            PaginationDTO<QuestionDTO> pagination = questionService.listQuestionsByUserId(user.getId(), page, size);
+            model.addAttribute("pageInfo", pagination);
         } else if ("replies".equals(action)) {
             model.addAttribute("section", "replies");
             model.addAttribute("sectionName", "最新回复");
+            // notification
+            PaginationDTO<NotificationDTO> pagination = notificationService.list(user.getId(), page, size);
+            model.addAttribute("pageInfo", pagination);
         }
-
-        PaginationDTO pagination = questionService.listQuestionsByUserId(user.getId(), page, size);
-        model.addAttribute("pageInfo", pagination);
-
         return "profile";
     }
 

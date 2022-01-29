@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyy.community.dao.NotificationDao">
+    <insert id="insertNotification" parameterType="com.zyy.community.entity.Notification">
+        insert into t_notification(sender,receiver,type,gmt_create,status,outer_id,sender_name,outer_title) values(#{sender},#{receiver},#{type},#{gmt_create},#{status},#{outer_id},#{sender_name},#{outer_title})
+    </insert>
+
+    <select id="countByUserId" resultType="java.lang.Integer">
+        select count(1) from t_notification where sender=#{userId}
+    </select>
+
+    <select id="listNotificationsByUserId" resultType="com.zyy.community.entity.Notification">
+        select * from t_notification where sender=#{userId} order by gmt_create desc limit #{offset},#{size}
+    </select>
+
+    <select id="selectNotReadCount" resultType="java.lang.Integer">
+        select count(1) from t_notification where receiver=#{userId} and status=0
+    </select>
+
+    <select id="selectById" resultType="com.zyy.community.entity.Notification">
+        select * from t_notification where id=#{id}
+    </select>
+
+    <update id="updateNotificationStatus" parameterType="com.zyy.community.entity.Notification">
+        update t_notification set status=#{status} where id=#{id}
+    </update>
+
+</mapper>

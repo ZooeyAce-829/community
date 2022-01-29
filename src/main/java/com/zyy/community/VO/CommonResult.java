@@ -12,10 +12,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommonResult {
+public class CommonResult<T> {
     private Integer code;
     private String msg;
-    private Object data; // 考虑是否泛型
+    private T data;
 
     public CommonResult(Integer code, String msg) {
         this(code, msg, null);
@@ -29,11 +29,16 @@ public class CommonResult {
         return errorOf(errorCode.getCode(), errorCode.getMessage());
     }
 
+    public static CommonResult errorOf(CustomizeException e) {
+        return errorOf(e.getCode(), e.getMessage());
+    }
+
     public static CommonResult okOf() {
         return new CommonResult(2000, "ok");
     }
 
-    public static CommonResult errorOf(CustomizeException e) {
-        return errorOf(e.getCode(), e.getMessage());
+    public static <T> CommonResult okOf(T data) {
+        return new CommonResult(2000, "ok", data);
     }
+
 }

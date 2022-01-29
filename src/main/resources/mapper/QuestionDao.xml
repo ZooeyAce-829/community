@@ -39,4 +39,9 @@
     <update id="updateCommentCount" parameterType="com.zyy.community.entity.Question">
         update t_question set comment_count=comment_count+1 where id=#{id}
     </update>
+    
+    <select id="selectRelated" resultType="com.zyy.community.entity.Question">
+        select * from t_question where tag regexp #{tag} and id!= #{id} limit 10
+    </select>
+    
 </mapper>

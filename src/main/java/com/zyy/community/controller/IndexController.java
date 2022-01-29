@@ -1,6 +1,7 @@
 package com.zyy.community.controller;
 
 import com.zyy.community.dto.PaginationDTO;
+import com.zyy.community.dto.QuestionDTO;
 import com.zyy.community.service.QuestionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +29,7 @@ public class IndexController {
 
         // 渲染文章列表
         // 这里不仅需要Question信息，还需要User的avatar_url信息，在QuestionDTO中封装需要的信息
-        PaginationDTO pageInfo = questionService.listQuestions(page, size);
+        PaginationDTO<QuestionDTO> pageInfo = questionService.listQuestions(page, size);
         model.addAttribute("pageInfo", pageInfo);
 
         return "index";

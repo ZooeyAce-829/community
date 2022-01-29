@@ -1,13 +1,17 @@
 package com.zyy.community.service.impl;
 
 import com.zyy.community.dao.CommentDao;
+import com.zyy.community.dao.NotificationDao;
 import com.zyy.community.dao.QuestionDao;
 import com.zyy.community.dao.UserDao;
 import com.zyy.community.dto.CommentDTO;
 import com.zyy.community.entity.Comment;
+import com.zyy.community.entity.Notification;
 import com.zyy.community.entity.Question;
 import com.zyy.community.entity.User;
 import com.zyy.community.enums.CommentTypeEnum;
+import com.zyy.community.enums.NotificationStatusEnum;
+import com.zyy.community.enums.NotificationTypeEnum;
 import com.zyy.community.exception.CustomizeErrorCode;
 import com.zyy.community.exception.CustomizeException;
 import com.zyy.community.service.CommentService;
@@ -34,10 +38,16 @@ public class CommentServiceImpl implements CommentService {
     @Resource
     private UserDao userDao;
 
+    @Resource
+    private NotificationDao notificationDao;
+
+    /**
+     * 插入评论或子评论,并带有通知
+     */
     @Override
     @Transactional
-    public Integer insert(Comment comment) {
-        int count;
+    public Integer insert(Comment comment, User commentator) {
+        int flag;
         if (comment.getParent_id() == null || comment.getParent_id() == 0) {
             throw new CustomizeException(CustomizeErrorCode.NO_QUESTION_OR_COMMENT_SELECTED);
         }
@@ -51,10 +61,21 @@ public class CommentServiceImpl implements CommentService {
             // 回复评论，做子评论
             // 看当前的父评论是否存在
             Comment _comment = commentDao.findByParentId(comment.getParent_id());
+
             if (_comment == null) {
                 throw new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
             } else {
-                count = commentDao.insert(comment);
+                // 评论还在
+                Question question = questionDao.getById(_comment.getParent_id());
+                if (question == null) {
+                    throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+                }
+
+                flag = commentDao.insert(comment);
+
+                // ##new) 顺带发通知
+                getNotification(comment.getCommentator(), _comment.getCommentator(), commentator.getName(), question.getTitle(), NotificationTypeEnum.REPLY_TO_COMMENT, question.getId());
+
             }
         } else {
             // 回复问题
@@ -64,20 +85,24 @@ public class CommentServiceImpl implements CommentService {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
 
-            count = commentDao.insert(comment);
+            flag = commentDao.insert(comment);
             // 对于问题插入的评论计入一次评论数
             questionDao.updateCommentCount(question);
+
+            // 通知
+            getNotification(comment.getCommentator(), question.getCreator(), commentator.getName(), question.getTitle(), NotificationTypeEnum.REPLY_TO_QUESTION, question.getId());
+
         }
-        return count;
+        return flag;
     }
 
     /**
-     * 根据questionId取Comment
+     * 根据id取Comment
      */
     @Override
-    public List<CommentDTO> listCommentsByQuestionId(Integer id) {
+    public List<CommentDTO> listCommentsById(Integer id, Integer type) {
 
-        List<CommentDTO> commentList = commentDao.selectCommentByQuestionId(id);
+        List<CommentDTO> commentList = commentDao.selectCommentById(id, type);
 
         if (commentList.size() == 0) return new ArrayList<>();
 
@@ -101,4 +126,24 @@ public class CommentServiceImpl implements CommentService {
 
         return commentDTOs;
     }
+
+    /**
+     * @param receiver 接收者
+     * @param type     通知的类型 (枚举
+     * @param outerId 点击跳转的时候需要一直拿到questionId，抽成变量，要不然当是子评论的时候拿到的是评论
+     */
+    private void getNotification(Integer sender, Integer receiver, String senderName, String outerTitle, NotificationTypeEnum type, Integer outerId) {
+        Notification notification = new Notification();
+        notification.setGmt_create(System.currentTimeMillis());
+        notification.setSender(sender);
+        notification.setReceiver(receiver);
+        notification.setType(type.getType());
+        notification.setStatus(NotificationStatusEnum.NOT_READ.getStatus());
+        notification.setOuter_id(outerId);
+        notification.setSender_name(senderName);
+        notification.setOuter_title(outerTitle);
+
+        Integer count = notificationDao.insertNotification(notification);
+    }
+
 }

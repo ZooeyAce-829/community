@@ -13,7 +13,9 @@ public enum CustomizeErrorCode implements ICustomizeErrorCode {
     NO_QUESTION_OR_COMMENT_SELECTED("还没选择要评论的问题或评论哦~", 4003),
     PARAM_TYPE_WRONG("评论类型错误或不存在哦~", 4004),
     COMMENT_NOT_FOUND("你要操作的评论不见了~", 4005),
-    CONTENT_IS_EMPTY("内容不能为空哦~", 4006)
+    CONTENT_IS_EMPTY("内容不能为空哦~", 4006),
+    READ_FAIL("没有阅读权限哦~", 4007),
+    NOTIFICATION_NOT_FOUND("你要找的通知不存在哦~", 4008)
     ;
 
     private final String message;

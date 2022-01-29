@@ -4,11 +4,13 @@ import com.zyy.community.dto.PaginationDTO;
 import com.zyy.community.dto.QuestionDTO;
 import com.zyy.community.entity.Question;
 
+import java.util.List;
+
 public interface QuestionService {
 
-    PaginationDTO listQuestions(Integer page, Integer size);
+    PaginationDTO<QuestionDTO> listQuestions(Integer page, Integer size);
 
-    PaginationDTO listQuestionsByUserId(Integer id, Integer page, Integer size);
+    PaginationDTO<QuestionDTO> listQuestionsByUserId(Integer id, Integer page, Integer size);
 
     QuestionDTO getById(Integer id);
 
@@ -16,4 +18,5 @@ public interface QuestionService {
 
     int incViewCount(QuestionDTO question);
 
+    List<QuestionDTO> getRelatedQuestions(QuestionDTO question);
 }

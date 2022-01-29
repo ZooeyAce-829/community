@@ -9,12 +9,15 @@ import com.zyy.community.entity.User;
 import com.zyy.community.exception.CustomizeErrorCode;
 import com.zyy.community.exception.CustomizeException;
 import com.zyy.community.service.QuestionService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class QuestionServiceImpl implements QuestionService {
@@ -30,7 +33,7 @@ public class QuestionServiceImpl implements QuestionService {
      * @param size 个数
      */
     @Override
-    public PaginationDTO listQuestions(Integer page, Integer size) {
+    public PaginationDTO<QuestionDTO> listQuestions(Integer page, Integer size) {
 
         // 数据库中总数据量
         Integer totalQuestions = questionDao.count();
@@ -54,7 +57,7 @@ public class QuestionServiceImpl implements QuestionService {
         List<Question> questions = questionDao.listQuestions(offset, size);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
-        PaginationDTO paginationDTO = new PaginationDTO();
+        PaginationDTO<QuestionDTO> paginationDTO = new PaginationDTO<>();
 
         // questionDTO列表赋值
         for (Question question : questions) {
@@ -68,7 +71,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
 
         // paginationDTO两个属性赋值，question属性和分页属性
-        paginationDTO.setQuestions(questionDTOList); // 构造器
+        paginationDTO.setData(questionDTOList); // 构造器
 
         paginationDTO.setPagination(pageCount, page); // 自定义方法
 
@@ -76,7 +79,7 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public PaginationDTO listQuestionsByUserId(Integer userId, Integer page, Integer size) {
+    public PaginationDTO<QuestionDTO> listQuestionsByUserId(Integer userId, Integer page, Integer size) {
 
         // 数据库中总数据量
         Integer totalQuestions = questionDao.countByUserId(userId);
@@ -102,7 +105,7 @@ public class QuestionServiceImpl implements QuestionService {
         List<Question> questions = questionDao.listQuestionsByUserId(userId, offset, size);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
-        PaginationDTO paginationDTO = new PaginationDTO();
+        PaginationDTO<QuestionDTO> paginationDTO = new PaginationDTO<>();
 
         // questionDTO列表赋值
         for (Question question : questions) {
@@ -116,7 +119,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
 
         // paginationDTO两个属性赋值，question属性和分页属性
-        paginationDTO.setQuestions(questionDTOList); // 构造器
+        paginationDTO.setData(questionDTOList); // 构造器
 
         paginationDTO.setPagination(pageCount, page); // 自定义方法
 
@@ -159,6 +162,31 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public int incViewCount(QuestionDTO question) {
         return questionDao.updateViewCount(question);
+    }
+
+    @Override
+    public List<QuestionDTO> getRelatedQuestions(QuestionDTO questionDTO) {
+
+        if (StringUtils.isBlank(questionDTO.getTag())) {
+            return new ArrayList<>();
+        }
+
+        String[] tags = questionDTO.getTag().split(",");
+
+        String regexpTag = Arrays.stream(tags).collect(Collectors.joining("|"));
+
+        Question question = new Question();
+        question.setId(questionDTO.getId());
+        question.setTag(regexpTag);
+        List<Question> questionList = questionDao.selectRelated(question);
+
+        List<QuestionDTO> list = questionList.stream().map(i -> {
+            QuestionDTO questionDTO1 = new QuestionDTO();
+            BeanUtils.copyProperties(i, questionDTO1);
+            return questionDTO1;
+        }).collect(Collectors.toList());
+
+        return list;
     }
 
 }

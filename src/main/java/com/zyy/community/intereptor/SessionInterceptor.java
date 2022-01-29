@@ -2,6 +2,7 @@ package com.zyy.community.intereptor;
 
 import com.zyy.community.dao.UserDao;
 import com.zyy.community.entity.User;
+import com.zyy.community.service.NotificationService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,6 +18,9 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Resource
     private UserDao userDao;
 
+    @Resource
+    private NotificationService notificationService;
+
     /**
      *  session拦截器 (抽离出添加session的功能
      */
@@ -30,6 +34,9 @@ public class SessionInterceptor implements HandlerInterceptor {
                     User user = userDao.findByToken(token);
                     if (user != null) {
                         request.getSession().setAttribute("user", user);
+                        // session加入未读通知数
+                        Integer notReadNotificationCount = notificationService.getNotReadCount(user.getId());
+                        request.getSession().setAttribute("notReadNotificationCount", notReadNotificationCount);
                     }
                     break;
                 }
