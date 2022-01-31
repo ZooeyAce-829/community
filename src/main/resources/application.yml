@@ -24,3 +24,11 @@ mybatis:
 #    configuration:
 #      map-underscore-to-camel-case: true
 
+
+logging:
+  file:
+    name: logs/community.log
+    max-size: 100MB
+    max-history: 15 # 最多只存储15个历史，以天为单位
+  level:
+    com.zyy.community.dao: debug

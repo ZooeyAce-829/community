@@ -14,10 +14,12 @@
 <body>
 
 <div th:insert="navigation :: nav"></div>
-        <div class="jumbotron">
-            <h1>出错了</h1>
-            <p th:text="${message}">页面一边凉快去了...</p>
-            <p><a class="btn btn-primary btn-lg" href="/" role="button">返回主页</a></p>
-        </div>
+<div class="jumbotron">
+    <h1>出错了</h1>
+    <p th:text="${message}">页面一边凉快去了...</p>
+    <p><a class="btn btn-primary btn-lg" href="/" role="button">返回主页</a></p>
+</div>
+
+<div th:insert="footer :: foot"></div>
 </body>
 </html>

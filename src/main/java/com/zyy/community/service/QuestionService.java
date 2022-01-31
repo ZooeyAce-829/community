@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface QuestionService {
 
-    PaginationDTO<QuestionDTO> listQuestions(Integer page, Integer size);
+    PaginationDTO<QuestionDTO> listQuestions(Integer page, Integer size, String search);
 
     PaginationDTO<QuestionDTO> listQuestionsByUserId(Integer id, Integer page, Integer size);
 

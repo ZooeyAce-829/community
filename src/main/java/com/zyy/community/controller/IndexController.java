@@ -24,13 +24,14 @@ public class IndexController {
     public String index(
             Model model,
             @RequestParam(name = "page", defaultValue = "1") Integer page,
-            @RequestParam(name = "size", defaultValue = "5") Integer size) {
-
+            @RequestParam(name = "size", defaultValue = "5") Integer size,
+            @RequestParam(name = "search", required = false) String search) {
 
         // 渲染文章列表
         // 这里不仅需要Question信息，还需要User的avatar_url信息，在QuestionDTO中封装需要的信息
-        PaginationDTO<QuestionDTO> pageInfo = questionService.listQuestions(page, size);
+        PaginationDTO<QuestionDTO> pageInfo = questionService.listQuestions(page, size, search);
         model.addAttribute("pageInfo", pageInfo);
+        model.addAttribute("search", search);
 
         return "index";
     }

@@ -9,11 +9,22 @@
     </insert>
 
     <select id="listQuestions" resultType="com.zyy.community.entity.Question">
-        select * from t_question limit #{offset},#{size}
+        select * from t_question
+        <where>
+            <if test="search != null">
+                and title regexp #{search}
+            </if>
+        </where>
+        order by gmt_create desc limit #{offset},#{size}
     </select>
 
-    <select id="count" resultType="java.lang.Integer">
+    <select id="count" resultType="java.lang.Integer" parameterType="java.lang.String">
         select count(*) from t_question
+        <where>
+            <if test="search != '' and search != null">
+                title regexp #{search}
+            </if>
+        </where>
     </select>
 
     <select id="countByUserId" resultType="java.lang.Integer">
@@ -39,9 +50,9 @@
     <update id="updateCommentCount" parameterType="com.zyy.community.entity.Question">
         update t_question set comment_count=comment_count+1 where id=#{id}
     </update>
-    
+
     <select id="selectRelated" resultType="com.zyy.community.entity.Question">
         select * from t_question where tag regexp #{tag} and id!= #{id} limit 10
     </select>
-    
+
 </mapper>

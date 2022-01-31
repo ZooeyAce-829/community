@@ -31,12 +31,22 @@ public class QuestionServiceImpl implements QuestionService {
     /**
      * @param page 当前页面
      * @param size 个数
+     * @param search 搜索的输入内容
      */
     @Override
-    public PaginationDTO<QuestionDTO> listQuestions(Integer page, Integer size) {
+    public PaginationDTO<QuestionDTO> listQuestions(Integer page, Integer size, String search) {
+
+        if (StringUtils.isNotBlank(search)) {
+            String[] keys = StringUtils.split(search, ",");
+            search = Arrays.stream(keys).collect(Collectors.joining("|"));
+        }
+
+        if (StringUtils.isBlank(search)) {
+            search = null;
+        }
 
         // 数据库中总数据量
-        Integer totalQuestions = questionDao.count();
+        Integer totalQuestions = questionDao.count(search);
 
         // 总页数
         Integer pageCount = totalQuestions % size == 0 ? totalQuestions / size : totalQuestions / size + 1;
@@ -54,7 +64,7 @@ public class QuestionServiceImpl implements QuestionService {
         Integer offset = (page - 1) * size;
 
         // 数据库条件查询(limit)
-        List<Question> questions = questionDao.listQuestions(offset, size);
+        List<Question> questions = questionDao.listQuestions(offset, size, search);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
         PaginationDTO<QuestionDTO> paginationDTO = new PaginationDTO<>();

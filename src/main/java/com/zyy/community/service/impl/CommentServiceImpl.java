@@ -73,7 +73,7 @@ public class CommentServiceImpl implements CommentService {
 
                 flag = commentDao.insert(comment);
 
-                // ##new) 顺带发通知
+                // 顺带发通知
                 getNotification(comment.getCommentator(), _comment.getCommentator(), commentator.getName(), question.getTitle(), NotificationTypeEnum.REPLY_TO_COMMENT, question.getId());
 
             }
@@ -133,6 +133,10 @@ public class CommentServiceImpl implements CommentService {
      * @param outerId 点击跳转的时候需要一直拿到questionId，抽成变量，要不然当是子评论的时候拿到的是评论
      */
     private void getNotification(Integer sender, Integer receiver, String senderName, String outerTitle, NotificationTypeEnum type, Integer outerId) {
+        // 自己给自己发，仅插入就不发通知了
+        if (receiver.equals(sender)) {
+            return;
+        }
         Notification notification = new Notification();
         notification.setGmt_create(System.currentTimeMillis());
         notification.setSender(sender);

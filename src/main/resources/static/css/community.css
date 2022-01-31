@@ -68,3 +68,8 @@ body {
     font-size: 13px;
     line-height: 20px;
 }
+
+.footer {
+    text-align: center;
+    color: #666;
+}
