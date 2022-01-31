@@ -72,7 +72,8 @@ public class AuthorizeController {
 
             return "redirect:/";
         } else {
-            // 登录失败
+            // 登录失败,追加日志
+            log.error("METHOD callback get githubUser {} error", githubUser);
             return "redirect:/";
         }
     }
