@@ -11,8 +11,11 @@
     <select id="listQuestions" resultType="com.zyy.community.entity.Question">
         select * from t_question
         <where>
-            <if test="search != null">
+            <if test="search != '' and search != null">
                 and title regexp #{search}
+            </if>
+            <if test="tag != '' and tag != null">
+                and tag regexp #{tag}
             </if>
         </where>
         order by gmt_create desc limit #{offset},#{size}
@@ -22,7 +25,10 @@
         select count(*) from t_question
         <where>
             <if test="search != '' and search != null">
-                title regexp #{search}
+                and title regexp #{search}
+            </if>
+            <if test="tag != '' and tag != null">
+                and tag regexp #{tag}
             </if>
         </where>
     </select>

@@ -61,7 +61,7 @@ body {
     margin-right: 5px;
 }
 
-.question-related {
+.question-related, .topic-related {
     list-style: none;
     margin-left: 10px;
     padding-left: 0;

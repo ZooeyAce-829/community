@@ -12,9 +12,9 @@ public interface QuestionDao {
 
     Integer createQuestion(Question question);
 
-    List<Question> listQuestions(Integer offset, Integer size, String search);
+    List<Question> listQuestions(Integer offset, Integer size, String search, String tag);
 
-    Integer count(String search);
+    Integer count(String search, String tag);
 
     Integer countByUserId(@Param(value = "userId") Integer userId);
 
