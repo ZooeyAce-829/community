@@ -1,5 +1,8 @@
 server:
   port: 8001
+  servlet:
+    session:
+      timeout: PT60M
 
 github:
   client:

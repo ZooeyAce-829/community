@@ -68,8 +68,10 @@ public class AuthorizeController {
 
             userService.judgeByAccountId(user);
 
-            response.addCookie(new Cookie("token", token));
-
+            Cookie cookie = new Cookie("token", token);
+            cookie.setMaxAge(60 * 60 * 24 * 30 * 6);
+            cookie.setPath("/");
+            response.addCookie(cookie);
             return "redirect:/";
         } else {
             // 登录失败,追加日志

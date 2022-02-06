@@ -124,3 +124,17 @@ function subComments(e) {
         }
     }
 }
+
+/**
+ * 搜索框过滤特殊字符
+ */
+function filterKeywords() {
+    var input = $("#searchBar").val();
+    // 正则 /g 代表全局
+    var pattern = /[`~!@#$%^&*()_+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——+={}|《》？：“”【】、；‘’，。、]/g;
+    if (pattern.test(input.trim())) {
+        input = input.replace(pattern, " ");
+    }
+    // 在js返回值是没用的，html无法获取值，只能通过dom强行写入
+    document.getElementById("searchBar").value = input;
+}

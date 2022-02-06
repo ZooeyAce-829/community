@@ -3,7 +3,6 @@ package com.zyy.community.provider;
 import com.alibaba.fastjson.JSON;
 import com.zyy.community.dto.AccessTokenDTO;
 import com.zyy.community.dto.GithubUser;
-import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpVersion;
@@ -21,7 +20,6 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 @Component
-@Slf4j
 public class GithubProvider {
     /**
      * 获取 access_token
@@ -41,7 +39,6 @@ public class GithubProvider {
         try (Response response = client.newCall(request).execute()) {
             String str = response.body().string();
             String access_token = str.split("&")[0].split("=")[1];
-            //log.info(access_token);
             return access_token;
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,27 +93,6 @@ public class GithubProvider {
 
         }
         return githubUser;
-
-/*        OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(30, TimeUnit.SECONDS)
-                .callTimeout(120, TimeUnit.SECONDS)
-                .readTimeout(1000, TimeUnit.SECONDS)
-                .writeTimeout(60, TimeUnit.SECONDS).build();
-        GithubUser githubUser = null;
-        Request request = new Request.Builder()
-                .url("https://api.github.com/user")
-                .header("Authorization", "token " + access_token)
-                .build();
-
-        try {
-            Response response = client.newCall(request).execute();
-            String str = response.body().string();
-            // parseObject() 将字符串转换为指定类型的对象
-            githubUser = JSON.parseObject(str, GithubUser.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return githubUser;*/
     }
 
 }

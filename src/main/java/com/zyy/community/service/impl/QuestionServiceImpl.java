@@ -29,8 +29,8 @@ public class QuestionServiceImpl implements QuestionService {
     private UserDao userDao;
 
     /**
-     * @param page 当前页面
-     * @param size 个数
+     * @param page   当前页面
+     * @param size   个数
      * @param search 搜索的输入内容
      * @param tag
      */
@@ -39,7 +39,7 @@ public class QuestionServiceImpl implements QuestionService {
 
         if (StringUtils.isNotBlank(search)) {
             String[] keys = StringUtils.split(search, ",");
-            search = Arrays.stream(keys).collect(Collectors.joining("|"));
+            search = (Arrays.stream(keys).collect(Collectors.joining("|"))).trim();
         }
 
         if (StringUtils.isBlank(search)) {
@@ -50,18 +50,23 @@ public class QuestionServiceImpl implements QuestionService {
             tag = null;
         }
 
+        if (tag != null) {
+            tag = tag.replace("+", "").replace("*", "")
+                    .replace("?", "").replace("/", "");
+        }
+
         // 数据库中总数据量
-        Integer totalQuestions = questionDao.count(search, tag);
+        int totalQuestions = questionDao.count(search, tag);
 
         // 总页数
-        Integer pageCount = totalQuestions % size == 0 ? totalQuestions / size : totalQuestions / size + 1;
+        int pageCount = totalQuestions % size == 0 ? totalQuestions / size : totalQuestions / size + 1;
 
         // 清洗数据 page不合法时候重新赋值
-        if (page < 1) {
-            page = 1;
-        }
         if (page > pageCount) {
             page = pageCount;
+        }
+        if (page < 1) {
+            page = 1;
         }
 
         // 设置分页偏移量
@@ -188,7 +193,12 @@ public class QuestionServiceImpl implements QuestionService {
 
         String[] tags = questionDTO.getTag().split(",");
 
-        String regexpTag = Arrays.stream(tags).collect(Collectors.joining("|"));
+        String regexpTag = Arrays.stream(tags)
+                .filter(StringUtils::isNotBlank)
+                .map(t -> t.replace("+", "").replace("*", "")
+                        .replace("?", "").replace("/", ""))
+                .filter(StringUtils::isNotBlank)
+                .collect(Collectors.joining("|"));
 
         Question question = new Question();
         question.setId(questionDTO.getId());

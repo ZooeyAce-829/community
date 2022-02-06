@@ -58,7 +58,16 @@
     </update>
 
     <select id="selectRelated" resultType="com.zyy.community.entity.Question">
-        select * from t_question where tag regexp #{tag} and id!= #{id} limit 10
+        select * from t_question
+        <where>
+            <if test="id != null">
+                and id != #{id}
+            </if>
+            <if test="tag != null and tag != ''">
+                and tag regexp #{tag}
+            </if>
+        </where>
+        limit 10
     </select>
 
 </mapper>

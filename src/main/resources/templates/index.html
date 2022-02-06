@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/community.css">
     <script src="js/jquery.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/js/community.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -81,7 +82,7 @@
             <ul class="topic-related">
                 <li th:each="hotTag : ${hotList}">
                     <span>
-                        <span><a th:href="@{/(page=1, search=${search}, tag=${hotTag.get('tagName')})}" th:text="${hotTag.get('tagName')}"></a></span>
+                        <span><a th:href="@{/(page=1, tag=${hotTag.get('tagName')})}" th:text="${hotTag.get('tagName')}"></a></span>
                         <span th:text="'当前热度:' + ${hotTag.get('moreInfo')}"></span>
                     </span>
                 </li>

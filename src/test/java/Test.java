@@ -19,4 +19,10 @@ public class Test {
         priorityQueue.add(new HotTagDTO("zhangsan4", 6));
         System.out.println(priorityQueue);
     }
+
+    @org.junit.Test
+    public void test3() {
+        System.out.println("\\?");
+    }
+
 }
