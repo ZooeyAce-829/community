@@ -2,14 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${sectionName}"></title>
-    <meta charset="UTF-8">
-    <title>community</title>
-    <link rel="stylesheet" href="/css/bootstrap.css"/>
-    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/css/community.css">
-    <script src="/js/jquery.min.js" type="text/javascript"></script>
-    <script src="/js/bootstrap.min.js" type="text/javascript"></script>
-
+    <head th:insert="~{import :: head}"></head>
 </head>
 <body>
 
@@ -17,17 +10,18 @@
 
 <div class="container-fluid main">
     <div class="row">
+        <!--左边-->
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
             <h2><span th:text="${sectionName}"></span></h2>
             <hr>
 
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${section == 'question'}">
+            <!--我的问题-->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${section == 'questions'}">
                 <div class="media" th:each="question : ${pageInfo.data}">
                     <div class="media-left">
                         <a href="#">
                             <img class="media-object img-rounded"
-                                 th:src="${question.user.avatar_url}"
-                                 src="https://avatars.githubusercontent.com/u/73425239?v=4">
+                                 th:src="${question.user.avatar_url}">
                         </a>
                     </div>
                     <div class="media-body">
@@ -39,6 +33,7 @@
                 </div>
             </div>
 
+            <!--最新回复-->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${section == 'replies'}">
                 <div class="media" th:each="notification : ${pageInfo.data}">
                     <p class="media-body">
@@ -46,11 +41,13 @@
                         <span th:text="${notification.sender_name + ' ' + notification.textType + ' '}"></span>
                         <a th:href="@{'/notification/' + ${notification.id}}" th:text="${notification.outer_title}"></a>
                         <span class="label label-danger" th:if="${notification.status == 0}">未读</span>
+                        <span th:text="${#dates.format(notification.gmt_create, 'yyyy-MM-dd HH:mm')}" style="float: right"></span>
                     </h5>
                     </p>
                 </div>
             </div>
 
+            <!--分页器-->
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
@@ -85,10 +82,11 @@
 
         </div>
 
+        <!--右边-->
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <div class="list-group" style="margin-top: 25px">
                 <a href="/profile/questions"
-                   th:class="${section == 'question'} ? 'active list-group-item' : 'list-group-item'">
+                   th:class="${section == 'questions'} ? 'active list-group-item' : 'list-group-item'">
                     我的问题
                 </a>
                 <a href="/profile/replies"

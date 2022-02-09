@@ -5,7 +5,7 @@
 <mapper namespace="com.zyy.community.dao.UserDao">
 
     <insert id="insertUser" parameterType="com.zyy.community.entity.User">
-        insert into t_user(account_id,name,token,gmt_create,gmt_modify,avatar_url) values(#{account_id},#{name},#{token},#{gmt_create},#{gmt_modify},#{avatar_url})
+        insert into t_user(account_id,name,token,gmt_create,gmt_modify,avatar_url,account_type) values(#{account_id},#{name},#{token},#{gmt_create},#{gmt_modify},#{avatar_url},#{account_type})
     </insert>
 
     <select id="findByToken" resultType="com.zyy.community.entity.User">
@@ -17,7 +17,7 @@
     </select>
 
     <select id="selectUserById" resultType="com.zyy.community.entity.User">
-        select * from t_user where account_id=#{account_id}
+        select * from t_user where account_id=#{account_id} and account_type=#{account_type}
     </select>
 
     <update id="update" parameterType="com.zyy.community.entity.User">

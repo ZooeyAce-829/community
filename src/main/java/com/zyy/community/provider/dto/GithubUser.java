@@ -1,4 +1,4 @@
-package com.zyy.community.dto;
+package com.zyy.community.provider.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

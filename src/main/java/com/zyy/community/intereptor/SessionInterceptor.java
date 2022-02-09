@@ -36,7 +36,7 @@ public class SessionInterceptor implements HandlerInterceptor {
                     if (user != null) {
                         request.getSession().setAttribute("user", user);
                         // session加入未读通知数
-                        Integer notReadNotificationCount = notificationService.getNotReadCount(user.getId());
+                        int notReadNotificationCount = notificationService.getNotReadCount(user.getId());
                         request.getSession().setAttribute("notReadNotificationCount", notReadNotificationCount);
                     }
                     break;

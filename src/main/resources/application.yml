@@ -8,8 +8,13 @@ github:
   client:
     id: e8ddec605b8d0da8a386
     secret: 6fd707166bf4cf632c2dd5c862aecca505fb8d82
-    uri: http://localhost:8001/callback
+    uri: http://localhost:8001/callback/github
 
+gitee:
+  client:
+    id: 67d133ef05be54f1618327c5c7c721afa43bfa97480c49ccf34876738043ee98
+    secret: 78e0bb4521ed5e149eb54ab52206e170be97f7e9f157cd86c104e9b69fd8cb3e
+    uri: http://localhost:8001/callback/gitee
 
 spring:
   datasource:

@@ -1,8 +1,11 @@
 package com.zyy.community.provider;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.zyy.community.dto.AccessTokenDTO;
+import com.zyy.community.provider.dto.GiteeUser;
 import com.zyy.community.provider.dto.GithubUser;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpVersion;
@@ -21,27 +24,19 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 @Component
-public class GithubProvider {
+@Slf4j
+public class GiteeProvider {
 
-    @Value("${github.client.id}")
+    @Value("${gitee.client.id}")
     private String clientId;
 
-    @Value("${github.client.secret}")
+    @Value("${gitee.client.secret}")
     private String clientSecret;
 
-    @Value("${github.client.uri}")
+    @Value("${gitee.client.uri}")
     private String uri;
 
-    /**
-     * 获取 access_token
-     */
     public String getAccessToken(AccessTokenDTO accessTokenDTO) {
-
-        // set剩下的三个参数
-        accessTokenDTO.setClient_id(clientId);
-        accessTokenDTO.setClient_secret(clientSecret);
-        accessTokenDTO.setRedirect_uri(uri);
-
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
@@ -49,24 +44,24 @@ public class GithubProvider {
                 .readTimeout(1000, TimeUnit.SECONDS)
                 .writeTimeout(60, TimeUnit.SECONDS).build();
         RequestBody body = RequestBody.create(mediaType, JSON.toJSONString(accessTokenDTO));
+        String url = "https://gitee.com/oauth/token?grant_type=authorization_code" +
+                "&code=%s&client_id=%s&redirect_uri=%s&client_secret=%s";
+        url = String.format(url, accessTokenDTO.getCode(), clientId, uri, clientSecret);
         Request request = new Request.Builder()
-                .url("https://github.com/login/oauth/access_token")
+                .url(url)
                 .post(body)
                 .build();
         try (Response response = client.newCall(request).execute()) {
             String str = response.body().string();
-            String access_token = str.split("&")[0].split("=")[1];
-            return access_token;
+            JSONObject jsonObject = JSON.parseObject(str);
+            return jsonObject.getString("access_token");
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    /**
-     * 获取用户
-     */
-    public GithubUser getUser(String access_token) {
+    public GiteeUser getUser(String access_token) {
         int timeout = 60;
         RequestConfig defaultRequestConfig = RequestConfig.custom()
                 .setSocketTimeout(timeout * 1000)
@@ -76,18 +71,17 @@ public class GithubProvider {
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
-        HttpGet httpGet = new HttpGet("https://api.github.com/user");
-        httpGet.addHeader(new BasicHeader("Authorization", "token " + access_token));
+        HttpGet httpGet = new HttpGet("https://gitee.com/api/v5/user?access_token=" + access_token);
         httpGet.setProtocolVersion(HttpVersion.HTTP_1_0);
         httpGet.addHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_CLOSE);
         httpGet.setConfig(defaultRequestConfig);
         CloseableHttpResponse response = null;
-        GithubUser githubUser = null;
+        GiteeUser giteeUser = null;
 
         try {
             response = httpClient.execute(httpGet);
             HttpEntity entity = response.getEntity();
-            githubUser = JSON.parseObject(entity.getContent(), GithubUser.class);
+            giteeUser = JSON.parseObject(entity.getContent(), GiteeUser.class);
             EntityUtils.consume(entity);
 
         } catch (IOException e) {
@@ -109,7 +103,7 @@ public class GithubProvider {
             }
 
         }
-        return githubUser;
+        return giteeUser;
     }
 
 }

@@ -18,10 +18,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User judgeByAccountId(User user) {
         // u: 数据库查询出来的user
-        User u = userDao.selectUserById(user.getAccount_id());
+        User u = userDao.selectUserById(user.getAccount_id(), user.getAccount_type());
 
         if (u == null) {
-            // 数据库中没有此account_id的用户
+            // 数据库中没有此用户
             user.setGmt_create(System.currentTimeMillis());
             user.setGmt_modify(user.getGmt_create());
             int count = userDao.insertUser(user);

@@ -15,7 +15,7 @@ public interface UserDao {
 
     User findById(@Param("id")Integer id);
 
-    User selectUserById(@Param("account_id") String account_id);
+    User selectUserById(@Param("account_id") String account_id, @Param("account_type") String account_type);
 
     int update(User user);
 

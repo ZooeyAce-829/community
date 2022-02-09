@@ -8,15 +8,15 @@
     </insert>
 
     <select id="countByUserId" resultType="java.lang.Integer">
-        select count(1) from t_notification where sender=#{userId}
+        select count(*) from t_notification where sender=#{userId}
     </select>
 
     <select id="listNotificationsByUserId" resultType="com.zyy.community.entity.Notification">
-        select * from t_notification where sender=#{userId} order by gmt_create desc limit #{offset},#{size}
+        select * from t_notification where receiver=#{userId} order by gmt_create desc limit #{offset},#{size}
     </select>
 
     <select id="selectNotReadCount" resultType="java.lang.Integer">
-        select count(1) from t_notification where receiver=#{userId} and status=0
+        select count(*) from t_notification where receiver=#{userId} and status=0
     </select>
 
     <select id="selectById" resultType="com.zyy.community.entity.Notification">

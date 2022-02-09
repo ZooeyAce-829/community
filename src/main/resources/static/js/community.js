@@ -43,7 +43,8 @@ function post(targetId, type, content) {
                 if (response.code === 4001) {
                     var flag = confirm(response.msg); // boolean
                     if (flag) {
-                        window.open("https://github.com/login/oauth/authorize?client_id=e8ddec605b8d0da8a386&redirect_uri=http://localhost:8001/callback&scope=user&state=1");
+                        $('#myModal').modal({})
+                        //window.open("https://github.com/login/oauth/authorize?client_id=e8ddec605b8d0da8a386&redirect_uri=http://localhost:8001/callback&scope=user&state=1");
                         window.localStorage.setItem("closable", "true");
                     }
                 } else {
